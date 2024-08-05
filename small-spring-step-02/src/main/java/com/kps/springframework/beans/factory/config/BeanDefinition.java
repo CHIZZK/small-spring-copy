@@ -9,7 +9,7 @@ package com.kps.springframework.beans.factory.config;
 
 public class BeanDefinition {
     private Class beanClass;
-    private BeanDefinition(Class beanClass){
+    public BeanDefinition(Class beanClass){
         this.beanClass = beanClass;
     }
 

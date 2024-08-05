@@ -3,6 +3,9 @@ package com.kps.springframework.beans.factory.support;
 import com.kps.springframework.beans.BeansException;
 import com.kps.springframework.beans.factory.config.BeanDefinition;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @ClassName DefaultListableBeanFactory
  * @Description 类注释
@@ -11,23 +14,19 @@ import com.kps.springframework.beans.factory.config.BeanDefinition;
  **/
 
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry {
-    @Override
-    public Object getBean(String name) throws BeansException {
-        return null;
-    }
+    private final Map<String, BeanDefinition> beanDefinitionMap =new HashMap<>();
+
 
     @Override
     protected BeanDefinition getBeanDefinition(String beanName) throws BeansException {
-        return null;
+         BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
+         if (beanDefinition == null) throw new BeansException("No bean is named"+ beanName + "is defined");
+         return beanDefinition;
     }
 
-    @Override
-    protected Object createBean(String beanName, BeanDefinition beanDefinition) throws BeansException {
-        return null;
-    }
 
     @Override
     public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) {
-
+        beanDefinitionMap.put(beanName,beanDefinition);
     }
 }
