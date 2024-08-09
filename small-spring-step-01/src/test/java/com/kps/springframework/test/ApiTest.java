@@ -20,6 +20,7 @@ public class ApiTest {
 
         //注入bean
         BeanDefinition beanDefinition = new BeanDefinition(new UserService());
+        //这里放入的是bean实例
         beanFactory.registerBeanDefinition("userService",beanDefinition);
 
         //获取bean

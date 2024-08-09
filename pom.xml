@@ -14,7 +14,7 @@
 		<module>Thread</module>
 	</modules>
 	<!-- TODO project name  -->
-	<name>quickstart</name>
+	<name>small-spring</name>
 	<description></description>
 
 	<!-- TODO

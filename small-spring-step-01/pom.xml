@@ -11,7 +11,7 @@
     <artifactId>small-spring-step-01</artifactId>
     <packaging>war</packaging>
     <!-- TODO project name  -->
-    <name>quickstart</name>
+    <name>small-spring-step-01</name>
     <description></description>
 
     <!-- TODO

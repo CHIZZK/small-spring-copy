@@ -15,9 +15,11 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
     @Override
     public Object getBean(String name) throws BeansException {
         Object bean = getSingleton(name);
+        // 不为空 返回bean
         if (bean != null) {
             return bean;
         }
+        //为空 根据bean定义创建bean
         BeanDefinition beanDefinition = getBeanDefinition(name);
         return createBean(name,beanDefinition);
     }

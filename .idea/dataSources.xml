@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="small-spring" uuid="7668bafa-72a7-4ed5-8187-10fac8054ffd">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\workspace\small-spring-copy\small-spring-step-02\small-spring.srctrlbm</jdbc-url>
+    </data-source>
+  </component>
+</project>

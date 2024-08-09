@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
- * Unit test for simple App.
+ * 基于cglib实现含构造函数的类实例化策略
  */
 public class AppTest 
 {

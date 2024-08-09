@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <config>
     <source_groups>
-        <source_group_b084d9e9-07de-4308-83fa-b2999fe818cc>
+        <source_group_703684c1-c150-46d6-8df3-32c295c60475>
             <java_standard>15</java_standard>
-            <maven>
-                <project_file_path>pom.xml</project_file_path>
-                <settings_file_path>D:/apache-maven-3.6.3/conf/settings.xml</settings_file_path>
-                <should_index_tests>0</should_index_tests>
-            </maven>
-            <name>Java Source Group from Maven</name>
+            <name>Java Source Group</name>
             <source_extensions>
                 <source_extension>.java</source_extension>
             </source_extensions>
+            <source_paths>
+                <source_path>./</source_path>
+            </source_paths>
             <status>enabled</status>
-            <type>Java Source Group from Maven</type>
-        </source_group_b084d9e9-07de-4308-83fa-b2999fe818cc>
+            <type>Java Source Group</type>
+            <use_jre_system_library>1</use_jre_system_library>
+        </source_group_703684c1-c150-46d6-8df3-32c295c60475>
     </source_groups>
     <version>8</version>
 </config>
