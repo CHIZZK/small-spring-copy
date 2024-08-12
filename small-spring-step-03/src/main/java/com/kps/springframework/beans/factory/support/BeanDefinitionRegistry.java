@@ -1,5 +1,7 @@
 package com.kps.springframework.beans.factory.support;
 
+import com.kps.springframework.beans.factory.config.BeanDefinition;
+
 /**
  * @ClassName BeanDefinitionRegistry
  * @Description 类注释
@@ -8,4 +10,6 @@ package com.kps.springframework.beans.factory.support;
  **/
 
 public interface BeanDefinitionRegistry {
+
+    void registerBeanDefinition(String beanName, BeanDefinition beanDefinition);
 }

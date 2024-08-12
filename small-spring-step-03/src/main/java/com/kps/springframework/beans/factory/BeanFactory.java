@@ -1,5 +1,7 @@
 package com.kps.springframework.beans.factory;
 
+import com.kps.springframework.beans.BeansException;
+
 /**
  * @ClassName BeanFactory
  * @Description 类注释
@@ -8,4 +10,7 @@ package com.kps.springframework.beans.factory;
  **/
 
 public interface BeanFactory {
+    Object getBean(String name) throws BeansException;
+
+    Object getBean(String name, Object... args) throws BeansException;
 }
