@@ -13,7 +13,9 @@
 		<module>small-spring-step-03</module>
 		<module>Thread</module>
         <module>small-spring-step-04</module>
-    </modules>
+        <module>smal-spring-step-05</module>
+		<module>small-spring-step-05</module>
+	</modules>
 	<!-- TODO project name  -->
 	<name>small-spring</name>
 	<description></description>
