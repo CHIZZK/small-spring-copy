@@ -7,5 +7,5 @@ package com.kps.springframework.beans.factory;
  * @Version 1.0
  **/
 
-public interface HierarchicalBeanFactory {
+public interface HierarchicalBeanFactory extends BeanFactory {
 }

@@ -15,7 +15,8 @@
         <module>small-spring-step-04</module>
         <module>smal-spring-step-05</module>
 		<module>small-spring-step-05</module>
-	</modules>
+        <module>Execption</module>
+    </modules>
 	<!-- TODO project name  -->
 	<name>small-spring</name>
 	<description></description>
