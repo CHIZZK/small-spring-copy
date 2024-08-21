@@ -13,9 +13,9 @@
 		<module>small-spring-step-03</module>
 		<module>Thread</module>
         <module>small-spring-step-04</module>
-        <module>smal-spring-step-05</module>
 		<module>small-spring-step-05</module>
         <module>Execption</module>
+        <module>JavaTest</module>
     </modules>
 	<!-- TODO project name  -->
 	<name>small-spring</name>
