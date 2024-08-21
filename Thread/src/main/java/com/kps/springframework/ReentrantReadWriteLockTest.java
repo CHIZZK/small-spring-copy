@@ -4,6 +4,9 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * 读写锁
+ * */
 public class ReentrantReadWriteLockTest {
     private static final ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
     private static final ReentrantReadWriteLock.ReadLock readLock = reentrantReadWriteLock.readLock();

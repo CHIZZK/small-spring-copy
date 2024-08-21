@@ -15,5 +15,4 @@ import java.util.Map;
 public interface BeanFactory {
     //通过名称获取bean
     Object getBean(String name) throws BeansException;
-    Map<String,String> map = new HashMap<>();
 }

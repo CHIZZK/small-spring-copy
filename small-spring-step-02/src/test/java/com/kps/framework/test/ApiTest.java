@@ -14,10 +14,12 @@ public class ApiTest {
 
         //2.注册Bean
         BeanDefinition beanDefinition = new BeanDefinition(UserService.class);
+        //registerBeanDefinition方法是从AbstractAutowireCapableBeanFactory中继承的BeanDefinitionRegistry中获取
         beanFactory.registerBeanDefinition("userService",beanDefinition);
 
 
         //3.第一次获取Bean
+        //getBean方法从AbstractAutowireCapableBeanFactory中继承的BeanFactory中获取
         UserService userService = (UserService) beanFactory.getBean("userService");
         userService.queryUserInfo();
 
