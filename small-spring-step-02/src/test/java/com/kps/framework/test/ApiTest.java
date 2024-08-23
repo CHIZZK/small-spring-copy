@@ -25,8 +25,16 @@ public class ApiTest {
 
 
         //4.第二次获取Bean from singleton
-        UserService userService_singleton = (UserService) beanFactory.getSingleton("userService");
+        UserService userService_singleton = (UserService) beanFactory.getBean("userService");
         userService_singleton.queryUserInfo();
     }
+    
+    //思路整理：
+    //首先初始化beanFactory，DefaultListableBeanFactory继承AbstractAutowireCapableBeanFactory,实现了BeanDefinitionRegistry接口，
+    //defaultlistablebeanfactory实现了BeanDefinitionRegistry接口中的registryBeanDefinition方法，
+    //defaultlistablebeanfactory继承实现了abstractbeanfactory抽象类中的抽象方法getbeandefinition,获取到注册的beandefinition；
+    //abstractautowirecapablebeanfactory继承实现了abstractbeanfactory抽象类中的抽象方法createBean，
+    //abstractbeanfactory实现了beanfactory接口的getbean方法，继承了defaultsingletonbeanregistry抽象类中的抽象方法getSingleton，并在getbean的方法实现中进行调用
+    
 
 }

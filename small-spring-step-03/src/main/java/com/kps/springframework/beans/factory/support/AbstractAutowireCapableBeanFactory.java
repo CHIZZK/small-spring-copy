@@ -14,7 +14,7 @@ import java.lang.reflect.Constructor;
 
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
 
-    private InstantiationStragety instantiationStragety = new CglibSubclassingInstantiationStragety();
+    private InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
     @Override
     protected Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args) throws BeansException {
         Object bean = null;
@@ -39,11 +39,11 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         return getInstantiationStragety().instantiate(beanDefinition, beanName, constructorToUse,args);
     }
 
-    public InstantiationStragety getInstantiationStragety() {
-        return instantiationStragety;
+    public InstantiationStrategy getInstantiationStragety() {
+        return instantiationStrategy;
     }
 
-    public void setInstantiationStragety(InstantiationStragety instantiationStragety) {
-        this.instantiationStragety = instantiationStragety;
+    public void setInstantiationStragety(InstantiationStrategy instantiationStrategy) {
+        this.instantiationStrategy = instantiationStrategy;
     }
 }

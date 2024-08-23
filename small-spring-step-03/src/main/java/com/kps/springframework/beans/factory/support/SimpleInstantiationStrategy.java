@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
  * @Version 1.0
  **/
 
-public class SimpleInstantiationStragety implements InstantiationStragety{
+public class SimpleInstantiationStrategy implements InstantiationStrategy {
     @Override
     public Object instantiate(BeanDefinition beanDefinition, String beanName, Constructor ctor, Object[] args) throws BeansException {
         Class clazz = beanDefinition.getBeanClass();

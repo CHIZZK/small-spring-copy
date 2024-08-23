@@ -33,7 +33,7 @@ public class AppTest
         
         //3.UserService设置属性
         PropertyValues propertyValues = new PropertyValues();
-        propertyValues.addPropertyValue(new PropertyValue("name","10001"));
+        propertyValues.addPropertyValue(new PropertyValue("uId","10001"));
         propertyValues.addPropertyValue(new PropertyValue("userDao",new BeanReference("userDao")));
         
         

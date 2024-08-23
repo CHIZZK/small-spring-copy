@@ -7,11 +7,11 @@ import java.lang.reflect.Constructor;
 
 /**
  * @ClassName InstantiationStragety
- * @Description 类注释
+ * @Description 实例化策略接口
  * @Author Zheng
  * @Version 1.0
  **/
 
-public interface InstantiationStragety {
+public interface InstantiationStrategy {
     Object instantiate(BeanDefinition beanDefinition, String beanName, Constructor ctor, Object[] args) throws BeansException;
 }

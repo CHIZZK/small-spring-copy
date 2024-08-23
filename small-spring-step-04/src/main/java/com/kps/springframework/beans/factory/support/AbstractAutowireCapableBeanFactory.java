@@ -24,6 +24,8 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         Object bean = null;
         try {
             bean = createBeanInstance(beanDefinition, beanName, args);
+            // 给bean填充属性
+            applyPropertyValues(beanName,bean,beanDefinition);
         } catch (Exception e) {
             throw new BeansException("Instantiation of bean failed",e);
         }
@@ -35,6 +37,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         Class<?> beanClass = beanDefinition.getBeanClass();
         Constructor<?>[] declaredConstructors = beanClass.getDeclaredConstructors();
         for (Constructor ctor : declaredConstructors) {
+            //判断构造方法的形参数量和传入的形参数量是否相等（还需要校验参数类型，此处省略）
             if (null != args && ctor.getParameterTypes().length == args.length) {
                 constructorToUse = ctor;
                 break;

@@ -8,7 +8,7 @@ package com.kps.bean;
  **/
 
 public class UserService {
-    private String name;
+    private String uId;
     private UserDao userDao;
 
     public UserDao getUserDao() {
@@ -19,20 +19,24 @@ public class UserService {
         this.userDao = userDao;
     }
 
-    public UserService(String name) {
-        this.name = name;
+    public String getuId() {
+        return uId;
+    }
+
+    public void setuId(String uId) {
+        this.uId = uId;
     }
 
     public UserService() {
     }
     public void queryUserInfo() {
-        System.out.println("查询用户信息：" + userDao.queryUserName(name));
+        System.out.println("查询用户信息：" + userDao.queryUserName(uId));
     }
     
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("");
-        sb.append("").append(name);
+        sb.append("").append(uId);
         return sb.toString();
     }
 }
