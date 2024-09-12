@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -9,6 +10,7 @@
         <module name="small-spring-step-02-01" />
         <module name="spring-ioc" />
         <module name="Execption" />
+        <module name="spring-template" />
         <module name="small-spring-step-05" />
         <module name="JavaTest" />
         <module name="small-spring-step-02" />

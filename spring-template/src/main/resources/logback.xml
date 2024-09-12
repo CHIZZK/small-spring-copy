@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration scan="true">
+    <!-- 应用名称 -->
+    <property name="APP_NAME" value="spring-boot-logback" />
+    <contextName>${HOSTNAME}</contextName>
+    <!-- 日志编码 -->
+    <property name="ENCODING" value="UTF-8"/>
+    <!-- 日志文件路径 -->
+    <property name="LOG_PATH" value="${BUILD_FOLDER:-logs}/${APP_NAME}"/>
+    <!-- DEBUG日志文件归档路径 -->
+    <property name="DEBUG_LOG_PATH" value="${LOG_PATH}/debug/${APP_NAME}"/>
+    <!-- INFO日志文件归档路径 -->
+    <property name="INFO_LOG_PATH" value="${LOG_PATH}/info/${APP_NAME}"/>
+    <!-- WARN日志文件归档路径 -->
+    <property name="WARN_LOG_PATH" value="${LOG_PATH}/warn/${APP_NAME}"/>
+    <!-- ERROR日志文件归档路径 -->
+    <property name="ERROR_LOG_PATH" value="${LOG_PATH}/error/${APP_NAME}"/>
+    <!-- brave-tracer日志文件归档路径 -->
+    <property name="BRAVE_TRACER_LOG_PATH" value="${LOG_PATH}/brave-tracer/${APP_NAME}"/>
+    <property name="LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %level [${APP_NAME:-},%X{traceId},%X{spanId},%X{parentId}] ${PID:- } --- [%thread] %-40.40class{39} %L: %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx} \n"/>
+
+    <!-- 统一控制台输出日志 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>${ENCODING}</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <!-- 统一DEBUG日志输出 -->
+    <appender name="debug_file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}-debug.log</file>
+        <!-- 日志归档 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${DEBUG_LOG_PATH}-%d{yyyyMMdd}.log.%i</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${LOG_PATTERN}</Pattern>
+            <charset>${ENCODING}</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 统一INFO日志输出 -->
+    <appender name="info_file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}-info.log</file>
+        <!-- 日志归档 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${INFO_LOG_PATH}-%d{yyyyMMdd}.log.%i</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${LOG_PATTERN}</Pattern>
+            <charset>${ENCODING}</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 统一WARN日志输出 -->
+    <appender name="warn_file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}-warn.log</file>
+        <!-- 日志归档 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${WARN_LOG_PATH}-%d{yyyyMMdd}.log.%i</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${LOG_PATTERN}</Pattern>
+            <charset>${ENCODING}</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 统一ERROR日志输出 -->
+    <appender name="error_file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}-error.log</file>
+        <!-- 日志归档 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${ERROR_LOG_PATH}-%d{yyyyMMdd}.log.%i</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${LOG_PATTERN}</Pattern>
+            <charset>${ENCODING}</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="brave_tracer_file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}.trace.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${BRAVE_TRACER_LOG_PATH}-%d{yyyyMMdd}.log.%i</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%msg%n</Pattern>
+            <charset>${ENCODING}</charset>
+        </encoder>
+    </appender>
+
+    <appender name ="async_debug_file" class= "ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>20</discardingThreshold>
+        <queueSize>256</queueSize>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref ="debug_file"/>
+    </appender>
+
+    <appender name ="async_info_file" class= "ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>20</discardingThreshold>
+        <queueSize>256</queueSize>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref ="info_file"/>
+    </appender>
+
+    <appender name ="async_warn_file" class= "ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>20</discardingThreshold>
+        <queueSize>256</queueSize>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref ="warn_file"/>
+    </appender>
+
+    <appender name ="async_error_file" class= "ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>20</discardingThreshold>
+        <queueSize>256</queueSize>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref ="error_file"/>
+    </appender>
+
+    <appender name ="async_brave_tracer_file" class= "ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>20</discardingThreshold>
+        <queueSize>256</queueSize>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref ="brave_tracer_file"/>
+    </appender>
+
+    <root >
+        <appender-ref ref="console"/>
+        <appender-ref ref="async_debug_file"/>
+        <appender-ref ref="async_info_file"/>
+        <appender-ref ref="async_warn_file"/>
+        <appender-ref ref="async_error_file"/>
+    </root>
+
+    <!--该logger会继承root的appender -->
+    <logger name="com.kps.template.logback" level="info"/>
+
+    <logger name="com.kps.template.service" level="INFO"/>
+</configuration>

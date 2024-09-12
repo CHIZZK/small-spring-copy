@@ -18,6 +18,7 @@
         <module>JavaTest</module>
         <module>spring-ioc</module>
         <module>small-spring-step-02-01</module>
+        <module>spring-template</module>
     </modules>
 	<!-- TODO project name  -->
 	<name>small-spring</name>

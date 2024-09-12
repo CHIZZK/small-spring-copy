@@ -1,4 +1,4 @@
-package com.kps.springframe.beans;
+package com.kps.springframework.beans;
 
 public class BeansException extends RuntimeException{
     public BeansException(String msg) {
